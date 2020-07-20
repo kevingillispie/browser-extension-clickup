@@ -1,1 +1,1 @@
-# browser-extension-clickup
+# Clickup Customizer Browser Extension
