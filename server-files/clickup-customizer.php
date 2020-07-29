@@ -22,7 +22,13 @@ if ( !$link )
     exit;
 }
 
-$sql_query = 'SELECT * FROM `clickup_customizer`;';
+$sql_query = '
+    SELECT 
+        *
+    FROM
+        `clickup_customizer`
+    ORDER BY `name`;
+    ';
 
 $qry_result = $link->query($sql_query);
 
