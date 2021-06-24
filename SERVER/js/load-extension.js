@@ -14,12 +14,12 @@ function loadExention(ajaxRequest, _formDataExtension) {
             let bodyTag = document.getElementsByTagName('BODY');
             bodyTag[0].insertAdjacentHTML('beforeend', ajaxRequest.responseText);
             let popupJS = document.createElement('SCRIPT');
-            popupJS.setAttribute('src', 'https://www.example.com/js/popup.js?uncache=' + Math.floor(Math.random() * 999999999));
+            popupJS.setAttribute('src', 'https://www.example.com/SERVER/js/popup.js?uncache=' + Math.floor(Math.random() * 999999999));
             popupJS.setAttribute('defer', 'true');
             popupJS.setAttribute('async', 'true');
             popupJS.setAttribute('type', 'text/javascript');
             let adminJS = document.createElement('SCRIPT');
-            adminJS.setAttribute('src', 'https://www.example.com/js/admin-login.js?uncache=' + Math.floor(Math.random() * 999999999))
+            adminJS.setAttribute('src', 'https://www.example.com/SERVER/js/admin-login.js?uncache=' + Math.floor(Math.random() * 999999999))
             adminJS.setAttribute('defer', 'true');
             adminJS.setAttribute('async', 'true');
             adminJS.setAttribute('type', 'text/javascript');
@@ -27,7 +27,7 @@ function loadExention(ajaxRequest, _formDataExtension) {
             bodyTag[0].appendChild(adminJS);
         }
     }
-    ajaxRequest.open('POST', 'https://www.example.com/load-extension.php?uncache=' + Math.floor(Math.random() * 999999999), true);
+    ajaxRequest.open('POST', 'https://www.example.com/SERVER/load-extension.php?uncache=' + Math.floor(Math.random() * 999999999), true);
     ajaxRequest.send(_formDataExtension);
 };
 loadExention(ajaxRequest, _formDataExtension);
