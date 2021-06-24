@@ -40,7 +40,7 @@ function get_clients(taskbar, taskTags) {
         }
     }
 
-    ajaxRequestCONTENT.open("GET", "https://www.example.com/clickup-customizer.php?uncache=" + Math.floor(Math.random() * 999999999), true);
+    ajaxRequestCONTENT.open("GET", "https://www.example.com/SERVER/clickup-customizer.php?uncache=" + Math.floor(Math.random() * 999999999), true);
     ajaxRequestCONTENT.send(null);
 }
 
