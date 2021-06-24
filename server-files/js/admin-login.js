@@ -5,35 +5,12 @@ _formDataLoad.append(`header_type`, `json`);
 
 var adminLogin = document.getElementById("access_code");
 adminLogin.addEventListener("keyup", function(event) {
-    if (event.keyCode === 13) {
+    if (event.code === 13) {
         event.preventDefault();
         loadAddRemoveButtons(_formDataLoad);
     }
 });
 
-// CHECK FOR ADMIN COOKIE:
-// chrome.cookies.get({
-//     "url":"https://www.example.com/",
-//     "name":"access_code"
-// }, function(cookie) {
-//     console.log(cookie);
-// })
-//////////////////////////////////////////////////////
-/////////////////////////////////////////////////////
-// ADMIN LOGIN
-function adminLogin(code) {
-    chrome.cookies.set({
-        url: "https://www.example.com/",
-        name: "access_code",
-        value: code,
-        expirationDate: (new Date().getTime() / 1000) + 3600
-    }, function(cookie) {
-        console.log("Cookie-related errors 🠗");
-        console.log(JSON.stringify(cookie));
-        console.log(chrome.extension.lastError);
-        console.log(chrome.runtime.lastError);
-    });
-}
 //////////////////////////////////////////////////////
 /////////////////////////////////////////////////////
 
@@ -41,7 +18,7 @@ function addRemoveListenerToClients() {
     let clientList = document.getElementById('client-list-tbody');
     console.log(clientList);
     for (let i = 0; i < clientList.children.length; i++) {
-        clientList.children[i].firstChild.addEventListener('click', function() {
+        clientList.children[i].firstChild.addEventListener('click', function(event) {
             selectClientToRemove(event);
         });
     }
@@ -70,7 +47,7 @@ function removeClient() {
             alert(removeRequest.responseText);
         }
     }
-    removeRequest.open('POST', '/remove-clients.php', true);
+    removeRequest.open('POST', 'https://www.example.com/remove-clients.php?uncache=' + Math.floor(Math.random() * 999999999), true);
     removeRequest.send(_formDataRemove);
 }
 
@@ -91,10 +68,10 @@ function addNewClient() {
         _formDataAdd.append(`header_type`, `json`);
         addClientRequest.onreadystatechange = function() {
             if (addClientRequest.readyState == 4 && addClientRequest.status == 200) {
-                alert(addClientRequest.responseText);
+                alert(addClientRequest.responseText + "\nHello");
             }
         }
-        addClientRequest.open('POST', '/add-clients.php', true);
+        addClientRequest.open('POST', 'https://www.example.com/add-clients.php?uncache=' + Math.floor(Math.random() * 999999999), true);
         addClientRequest.send(_formDataAdd);
     }
 }
@@ -132,6 +109,6 @@ function loadAddRemoveButtons(_formDataLoad) {
         }
     }
     _formDataLoad.append('access_code', document.getElementById('access_code').value);
-    ajaxRequest.open('POST', '/admin-login.php', true);
+    ajaxRequest.open('POST', 'https://www.example.com/admin-login.php?uncache=' + Math.floor(Math.random() * 999999999), true);
     ajaxRequest.send(_formDataLoad);
 };
