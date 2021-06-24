@@ -47,7 +47,7 @@ function removeClient() {
             alert(removeRequest.responseText);
         }
     }
-    removeRequest.open('POST', 'https://www.example.com/remove-clients.php?uncache=' + Math.floor(Math.random() * 999999999), true);
+    removeRequest.open('POST', 'https://www.example.com/SERVER/remove-clients.php?uncache=' + Math.floor(Math.random() * 999999999), true);
     removeRequest.send(_formDataRemove);
 }
 
@@ -71,7 +71,7 @@ function addNewClient() {
                 alert(addClientRequest.responseText + "\nHello");
             }
         }
-        addClientRequest.open('POST', 'https://www.example.com/add-clients.php?uncache=' + Math.floor(Math.random() * 999999999), true);
+        addClientRequest.open('POST', 'https://www.example.com/SERVER/add-clients.php?uncache=' + Math.floor(Math.random() * 999999999), true);
         addClientRequest.send(_formDataAdd);
     }
 }
@@ -109,6 +109,6 @@ function loadAddRemoveButtons(_formDataLoad) {
         }
     }
     _formDataLoad.append('access_code', document.getElementById('access_code').value);
-    ajaxRequest.open('POST', 'https://www.example.com/admin-login.php?uncache=' + Math.floor(Math.random() * 999999999), true);
+    ajaxRequest.open('POST', 'https://www.example.com/SERVER/admin-login.php?uncache=' + Math.floor(Math.random() * 999999999), true);
     ajaxRequest.send(_formDataLoad);
 };
