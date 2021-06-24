@@ -20,5 +20,4 @@ The extension reads the task's tags looking for the name of the client, and then
 
 ## Version
 
-1.3 beta
-Chrome
+1.3 beta, Chrome
