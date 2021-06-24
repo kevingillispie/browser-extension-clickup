@@ -19,7 +19,7 @@ $dbuser = "[[database username]]";
 $dbpass = "[[database password]]";
 $dbname = "[[database name]]";
 
-$dbLink = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
+$dblink = mysqli_connect( $dbhost, $dbuser, $dbpass, $dbname );
 
 if (!$dbLink) {
     echo "Error: Unable to connect to MySQL." . PHP_EOL;
@@ -28,7 +28,20 @@ if (!$dbLink) {
     exit;
 }
 
-$add_client_query = "
+$check_for_duplicate = "
+    SELECT 
+        *
+    FROM
+        `clickup_customizer`
+    WHERE
+        `abbr` = '$abbr'
+    LIMIT 1
+";
+
+if ($dbLink->query($check_for_duplicate != null)) {
+    echo "Client already exists. ... (o.O) !!";
+} else {
+    $add_client_query = "
     INSERT INTO
         `clickup_customizer` (`name`, `abbr`, `link`)
     VALUES
@@ -38,11 +51,12 @@ $add_client_query = "
             '$link'
         )";
 
-if ($dbLink->query($add_client_query)) //mysqli_query($dbLink, $add_client_query)
-{
-    echo "Client added successfully.";
-} else {
-    echo "Error: " . $$add_client_query . "<br>" . $dbLink->error;
+    if ($dbLink->query($add_client_query))
+    {
+        echo "Client added successfully.";
+    } else {
+        echo "Error: " . $add_client_query . "<br>" . $dbLink->error;
+    }
 }
 
 mysqli_close($dbLink);
