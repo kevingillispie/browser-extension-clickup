@@ -1,4 +1,5 @@
-.client-card {
+.client-card,
+.custom-field-btn {
     background-color:rgb(99,177,71);
     padding:5px 10px;
     border-radius:50px 10px 10px 50px;
@@ -6,4 +7,9 @@
     font-size:12px;
     font-weight:bold;
     color:white;
+    cursor: pointer;
+}
+.custom-field-btn {
+    border-radius:10px 50px 50px 10px;
+    width: 155px;
 }
