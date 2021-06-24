@@ -76,7 +76,7 @@ function get_clients() {
         }
     }
 
-    ajaxRequestPOPUP.open("GET", "/clickup-customizer.php", true);
+    ajaxRequestPOPUP.open("GET", "https://www.example.com/clickup-customizer.php?uncache=" + Math.floor(Math.random() * 999999999), true);
     ajaxRequestPOPUP.send(null);
 }
 get_clients();
