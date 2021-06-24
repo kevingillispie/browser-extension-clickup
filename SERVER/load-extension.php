@@ -8,7 +8,7 @@ if ($_POST['action'] !== 'load_popup') {
 }
 
 ?>
-<link rel="stylesheet" href="/css/popupstyle.css">
+<link rel="stylesheet" href="/SERVER/css/popupstyle.css">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&family=Rock+Salt&display=swap" rel="stylesheet">
 <main>
     <header>
@@ -24,7 +24,7 @@ if ($_POST['action'] !== 'load_popup') {
         </section>
         <hr />
         <section>
-            <p id="clickup-link"><a href="https://app.clickup.com" target="_blank">Go to &nbsp;<img src="/images/clickup-icon-72x72.png">&nbsp; Homepage</a></p>
+            <p id="clickup-link"><a href="https://app.clickup.com" target="_blank">Go to &nbsp;<img src="/BROWSER/images/clickup-icon-72x72.png">&nbsp; Homepage</a></p>
             <div id="add-remove-clients-container">
                 <input type="password" name="access_code" id="access_code" placeholder="Boss-Level Cheat Code" title="To update the client list, type the magic word and hit ENTER.">
                 <p id="admin-login-show">Add / Remove Clients</p>
