@@ -1,6 +1,6 @@
 # ClickUp Customizer Browser Extension
 
-Feature requests may never materialize, so this browser extension adds the features we want... now!
+ClickUp feature requests may never materialize, so this browser extension adds the features we want... now!
 
 ## Tech Stack
 
@@ -20,4 +20,5 @@ The extension reads the task's tags looking for the name of the client, and then
 
 ## Version
 
-1.0 beta
+1.3 beta
+Chrome
